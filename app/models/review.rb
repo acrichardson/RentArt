@@ -1,4 +1,4 @@
 class Review < ApplicationRecord
-  has_one :reservation
+  belongs_to :reservation
   has_one :product, through: :reservation
 end
