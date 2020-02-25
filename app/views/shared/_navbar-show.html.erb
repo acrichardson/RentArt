@@ -13,29 +13,28 @@
       <li class="nav-item active">
         <%= link_to "Home", "/", class: "nav-link" %>
       </li>
-      <li class="nav-item active">
-        <!-- if statement, if you have produtcs go to product list, else go to add product -->
-        <%= link_to "Become a Renter", "#", class: "nav-link" %>
+      <li class="nav-item">
+        <%= link_to "Add Product", "/products/new", class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <!-- <%= link_to "Add Product", "/products/new", class: "nav-link" %> -->
+        <%= link_to "Edit", edit_product_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <!-- <%= link_to "Back to Something", "#", class: "nav-link" %> -->
+        <%= link_to "Something", edit_product_path, class: "nav-link" %>
       </li>
-      <li class="nav-item">
-        <%= link_to "See all products", products_path, class: "nav-link" %>
-      </li>
+
       <li class="nav-item dropdown nav-link" >
           <p class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Product owner menu</p>
-
+          Make Reservation</p>
               <div class="dropdown-menu dropdown-menu-right nav-item active" aria-labelledby="navbarDropdown">
-                <%= link_to "Add Product", "/products/new", class: "dropdown-item" %>
-                <%= link_to "My products", products_path, class: "dropdown-item" %>
+                <%= link_to "Make Reservation", new_product_reservation_path, class: "dropdown-item" %>
+                <%= link_to "Edit", "#", class: "dropdown-item" %>
                 <%= link_to "Add Ingredient", "#", class: "dropdown-item" %>
                 <%= link_to "Delete!", "#", class: "dropdown-item" %>
               </div>
-      </li>
+            </li>
+    </ul>
   </div>
 </div>
+
+
