@@ -1,27 +1,35 @@
 <div class="container mt-3">
-<h1><%= @product.name %></h1>
-<ul>
-  <li><%= @product.details %></li>
-</ul>
 
-<a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+
+  <h1><%= @product.name %> <% if policy(@product).destroy? %><%= link_to product_path(@product), method: :delete, data: {confirm: "Are you sure you want to delete this product?"} do%>
+    <i class="fas fa-trash-alt"></i>
+    <% end %>
+    <% end %>
+  </h1>
+  <ul>
+    <li><%= @product.details %></li>
+  </ul>
+
+  <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
     show <%= @product.name %> reviews
   </a>
   <div class="collapse" id="collapseExample">
-  <div class="card card-body">
-    <ol>
-    <% @product.reviews.each do |review| %>
-    <li class="mt-2"><strong><%= review.content %></strong> rating: <%= review.rating %> stars</li>
-    <% end %>
-    </ol>
+    <div class="card card-body">
+      <ol>
+        <% @product.reviews.each do |review| %>
+        <li class="mt-2"><strong><%= review.content %></strong> rating: <%= review.rating %> stars</li>
+        <% end %>
+      </ol>
 
+    </div>
   </div>
-</div>
 
-<div class="mt-5">
+  <div class="mt-5">
 
-<p><%= link_to "Back to products", products_path %></p>
-<p><%= link_to "update #{@product.name}", edit_product_path(@product) %></p>
-</p>
-</div>
-</div>
+    <p><%= link_to "Back to products", products_path %></p>
+
+    <p><% if policy(@product).edit? %>
+      <%= link_to "Update #{@product.name}", edit_product_path(@product) %>
+      <% end %></p>
+    </div>
+  </div>

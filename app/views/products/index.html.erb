@@ -1,8 +1,13 @@
 <h1>Products</h1>
 <ul>
   <% @products.each do |product| %>
-  <li><%= link_to product.name, product_path(product) %></li>
+  <li><%= link_to product.name, product_path(product) %>
+  <% if policy(product).edit? %>
+    <%= link_to "Update", edit_product_path(product) %></li>
+  <% end %>
   <% end %>
 </ul>
-<%= link_to "Add a new product", new_product_path %>
-</div>
+
+<% if policy(Product).create? %>
+  <%= link_to "Add a new product", new_product_path %>
+<% end %>
