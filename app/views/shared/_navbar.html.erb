@@ -14,8 +14,12 @@
         <%= link_to "Home", "/", class: "nav-link" %>
       </li>
       <li class="nav-item active">
-        <!-- if statement, if you have produtcs go to product list, else go to add product -->
-        <%= link_to "Become a Renter", "#", class: "nav-link" %>
+        <!-- if statement, if you have produtcs go to product list, else go to addg -->
+        <% if (@products.user != nil) %>
+        <%= link_to "Become a Renter", my_products_path, class: "nav-link" %>
+        <% else %>
+        <%= redirect_to new_product_path%>
+        <% end %>
       </li>
       <li class="nav-item">
         <!-- <%= link_to "Add Product", "/products/new", class: "nav-link" %> -->
@@ -32,7 +36,7 @@
 
               <div class="dropdown-menu dropdown-menu-right nav-item active" aria-labelledby="navbarDropdown">
                 <%= link_to "Add Product", "/products/new", class: "dropdown-item" %>
-                <%= link_to "My products", my_products_path, class: "dropdown-item" %>
+                <%= link_to "My products", products_path, class: "dropdown-item" %>
                 <%= link_to "Add Ingredient", "#", class: "dropdown-item" %>
                 <%= link_to "Delete!", "#", class: "dropdown-item" %>
               </div>
