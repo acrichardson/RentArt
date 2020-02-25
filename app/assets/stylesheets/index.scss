@@ -1,0 +1,71 @@
+.home-banner{
+  background-image: url('https://ei.marketwatch.com/Multimedia/2018/04/03/Photos/ZH/MW-GG707_privat_20180403142848_ZH.jpg?uuid=d9ec97a0-376c-11e8-aef8-ac162d7bc1f7');
+  background-size: cover;
+  height: 100vh;
+  color: black;
+  font-size: 25px;
+  text-align: center;
+  padding-top: 40vh;
+}
+
+.buttonsList {
+  list-style: none;
+  padding: 0;
+}
+
+
+i {
+  color: black;
+  font-size: 15px;
+  margin-top: 3px;
+}
+
+.product-card {
+  width: 100%;
+  height: 330px;
+  box-shadow: 3px -2px 9px 0px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-radius: 4px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  h3 > a {
+    color: white;
+    opacity: 0.8;
+  }
+}
+.product-grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 40px;
+  grid-row-gap: 32px;
+}
+.product-delete {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  color: #ef5350;
+  &:hover {
+    color: #f44336;
+  }
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.container {
+  padding: 2px 16px;
+}
+@media(max-width: 992px) {
+ .cocktail-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media(max-width: 768px) {
+  .cocktail-grid {
+    grid-template-columns: 1fr;
+  }
+}

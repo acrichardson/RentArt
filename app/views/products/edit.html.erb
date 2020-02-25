@@ -5,6 +5,7 @@
 <%= simple_form_for @product do |f| %>
   <%= f.input :name, placeholder: 'Product name please', error: 'Product name is mandatory, please specify one' %>
   <%= f.input :details %>
+  <%= f.input :photo, as: :file %>
   <div class="btn btn-primary">
   <%= f.button :submit %>
   </div>
