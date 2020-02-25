@@ -1,2 +1,16 @@
 <h1>Reservations#new</h1>
 <p>Find me in app/views/reservations/new.html.erb</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <div class="od">Add reservation</div>
+        <%= simple_form_for [@product, @reservation] do |f| %>
+        <%= f.input :date %>
+        <%= f.association :user %>
+        <!-- <%= f.association #:review %> -->
+        <%= f.submit class: "btn btn-primary" %>
+
+    </div>
+  </div>
+</div>
