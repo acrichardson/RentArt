@@ -8,6 +8,7 @@
     <% end %>
     <% end %>
   </h1>
+  <%= cl_image_tag @product.photo.attached? ? @product.photo.key : "pn4d9wzxnc9advmnrniw", width: 400, height: 300, crop: :fill %>
   <ul>
     <li><%= @product.details %></li>
   </ul>
