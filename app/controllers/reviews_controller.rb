@@ -1,31 +1,32 @@
 class ReviewsController < ApplicationController
 
   def new
-    @product = Product.find(params[:product_id])
     @review = Review.new
   end
 
   def create
-    @product = Product.find(params[:product_id])
+    @reservation = Reservation.find(params[:reservation_id])
     @review = Review.new(review_params)
+    @review.reservation = @reservation
 
-    @review.product = @product
     if @review.save
-      redirect_to product_path(@Product)
+      redirect_to product_path(@reservation.product)
     else
+      raise
       render :new
     end
   end
-end
 
-def destroy
-  @review = Review.find(params[:id])
-  @review.destroy
-end
 
-private
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+  end
 
-def review_params
-  params.require(:reviews).permit(:stars, :content)
-end
+  private
+
+  def review_params
+    params.require(:review).permit(:stars, :content)
+  end
+
 end

@@ -1,5 +1,7 @@
 class ReservationsController < ApplicationController
-    def index
+  skip_before_action :authenticate_user!
+
+  def index
     @reservations = Reservation.all
   end
 
@@ -13,18 +15,20 @@ class ReservationsController < ApplicationController
     #   redirect_to @reservations_path
     # else
     #   render :new
+    end
   end
 
   def destroy
-    @reservation = @reservation.find(params[:id])
+    @reservation = Reservation.find(params[:id])
     @reservation.destroy
   end
 
   def show
-    @reservation = @reservation.find(params[:id])
+    @reservation = Reservation.find(params[:id])
+    @review = Review.new
   end
 
-  private
+private
   # def get_reservation
   #   @reservation = @reservation.find(params[:id])
   # end

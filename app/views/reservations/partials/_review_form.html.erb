@@ -1,0 +1,7 @@
+<%= simple_form_for [@reservation, @review] do |f| %>
+  <%= f.input :stars %>
+  <%= f.input :content %>
+  <%= f.submit "add review", class: "btn btn-primary" %>
+<% end %>
+
+
