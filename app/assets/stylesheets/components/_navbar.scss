@@ -9,4 +9,12 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+  border-radius: 50%;
+  height: vh;
+}
+
+.navbar {
+  position: sticky;
+  top: 0px;
+  z-index: 10;
 }
