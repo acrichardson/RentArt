@@ -15,11 +15,9 @@
       </li>
       <li class="nav-item active">
         <!-- if statement, if you have produtcs go to product list, else go to addg -->
-        <% if (@products.user != nil) %>
+
         <%= link_to "Become a Renter", my_products_path, class: "nav-link" %>
-        <% else %>
-        <%= redirect_to new_product_path%>
-        <% end %>
+
       </li>
       <li class="nav-item">
         <!-- <%= link_to "Add Product", "/products/new", class: "nav-link" %> -->
