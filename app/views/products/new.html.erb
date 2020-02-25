@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 offset-3">
+
+<h1>Add a new Product</h1>
+<%= simple_form_for @product do |f| %>
+  <%= f.input :name, placeholder: 'Product name please', error: 'Product name is mandatory, please specify one' %>
+  <%= f.input :details %>
+  <div class="btn btn-primary">
+  <%= f.button :submit %>
+  </div>
+<% end %>
+
+<%= link_to "back", products_path %>
+    </div>
+  </div>
+</div>
+
