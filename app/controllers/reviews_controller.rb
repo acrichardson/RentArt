@@ -7,15 +7,12 @@ class ReviewsController < ApplicationController
   def create
     @reservation = Reservation.find(params[:reservation_id])
     @review = Review.new(review_params)
-
-     @product = Products.find(id)
-     res = @product.reservations
+    @review.reservation = @reservation
 
     if @review.save
-      @reservation.review_id = @review.id
-      @reservation.save
-      redirect_to product_path(@Product)
+      redirect_to product_path(@reservation.product)
     else
+      raise
       render :new
     end
   end
@@ -29,7 +26,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:reviews).permit(:stars, :content)
+    params.require(:review).permit(:stars, :content)
   end
 
 end

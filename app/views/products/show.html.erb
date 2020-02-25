@@ -17,7 +17,7 @@
     <div class="card card-body">
       <ol>
         <% @product.reviews.each do |review| %>
-        <li class="mt-2"><strong><%= review.content %></strong> rating: <%= review.rating %> stars</li>
+        <li class="mt-2"><strong><%= review.content %></strong> rating: <%= review.stars %> stars</li>
         <% end %>
       </ol>
 
