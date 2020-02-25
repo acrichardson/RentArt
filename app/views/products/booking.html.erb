@@ -2,11 +2,11 @@
   <div class="row">
     <div class="col-6 offset-3">
 
-<h1>Add a new Product</h1>
+<h1>Create a new Booking</h1>
 <%= simple_form_for @product do |f| %>
-  <%= f.input :name, placeholder: 'Product name please', error: 'Product name is mandatory, please specify one' %>
+  <%= f.input :date, placeholder: 'Product name please', error: 'Date is mandatory, please specify for which day you would like to book' %>
   <%= f.input :details %>
-  <%= f.input :photo, as: :file %>
+
   <div class="btn btn-primary">
   <%= f.button :submit %>
   </div>
@@ -22,4 +22,3 @@
     </div>
   </div>
 </div>
-
