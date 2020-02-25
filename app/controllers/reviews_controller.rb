@@ -12,4 +12,10 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @review.destroy
   end
+
+  private
+
+  def review_params
+    params.require(:reviews).permit(:stars, :content)
+  end
 end
