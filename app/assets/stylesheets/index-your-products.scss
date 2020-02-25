@@ -1,0 +1,76 @@
+.home-banner{
+  background-image: url('https://cdn-image.departures.com/sites/default/files/styles/responsive_900x600/public/1572446921/header-general-private-jet-on-tarmac-BESTJETCOMP1019.jpg?itok=Opnfg4PG');
+  background-size: cover;
+  background-position: center;
+  height: 73vh;
+  color: #eee;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 55vh;
+}
+
+a {
+  color: #C1292E;
+}
+
+.buttonsList {
+  list-style: none;
+  padding: 0;
+}
+
+
+i {
+  color: black;
+  font-size: 15px;
+  margin-top: 3px;
+}
+
+.product-card {
+  width: 100%;
+  height: 330px;
+  box-shadow: 3px -2px 9px 0px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-radius: 4px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  h3 > a {
+    color: white;
+    opacity: 0.8;
+  }
+}
+.product-grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 40px;
+  grid-row-gap: 32px;
+}
+.product-delete {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  color: #ef5350;
+  &:hover {
+    color: #f44336;
+  }
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.container {
+  padding: 2px 16px;
+}
+@media(max-width: 992px) {
+ .cocktail-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media(max-width: 768px) {
+  .cocktail-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -45,10 +45,15 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
+  def my_products
+    @products = current_user.products
+    authorize @products
+  end
+
   private
 
   def product_params
-    params.require(:product).permit(:name, :details, :user_id)
+    params.require(:product).permit(:name, :details, :user_id, :photo)
   end
 
 end
