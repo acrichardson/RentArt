@@ -24,4 +24,25 @@ class ProductPolicy < ApplicationPolicy
   def my_products?
     true
   end
+
+  def helicopters?
+    true
+  end
+
+  def cars?
+    true
+  end
+
+  def planes?
+    true
+  end
+
+  def yachts?
+    true
+  end
+
+  def others?
+    true
+  end
+
 end
