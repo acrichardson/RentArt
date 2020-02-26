@@ -13,11 +13,20 @@
       <li class="nav-item active">
         <%= link_to "Home", "/", class: "nav-link" %>
       </li>
-      <li class="nav-item">
-        <%= link_to "Add Product", "/products/new", class: "nav-link" %>
+      <li class="nav-item active">
+        <!-- if statement, if you DON'T have produtsc SHOW LINK to becoma a renter, no else  -->
+
+        <!-- <%= link_to "Become a Renter", my_products_path, class: "nav-link" %> -->
+
       </li>
       <li class="nav-item">
-        <%= link_to "Back to Something", "#", class: "nav-link" %>
+        <!-- <%= link_to "Add Product", "/products/new", class: "nav-link" %> -->
+      </li>
+      <li class="nav-item">
+        <!-- <%= link_to "Back to Something", "#", class: "nav-link" %> -->
+      </li>
+      <li class="nav-item">
+        <%= link_to "See all products", products_path, class: "nav-link" %>
       </li>
       <li class="nav-item dropdown nav-link" >
           <p class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -26,11 +35,8 @@
               <div class="dropdown-menu dropdown-menu-right nav-item active" aria-labelledby="navbarDropdown">
                 <%= link_to "Add Product", "/products/new", class: "dropdown-item" %>
                 <%= link_to "My products", products_path, class: "dropdown-item" %>
-                <%= link_to "Add Photo", "#", class: "dropdown-item" %>
-                <%= link_to "Add Ingredient", "#", class: "dropdown-item" %>
                 <%= link_to "Delete!", "#", class: "dropdown-item" %>
               </div>
-            </li>
-    </ul>
+      </li>
   </div>
 </div>
