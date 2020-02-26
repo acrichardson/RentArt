@@ -1,2 +1,19 @@
-<h1>Reservations#create</h1>
-<p>Find me in app/views/reservations/create.html.erb</p>
+
+<div class="container mt-5">
+<h1>Your reservation has been created</h1>
+
+
+<div class="card-product">
+<%= cl_image_tag @product.photo.attached? ? @product.photo.key : "pn4d9wzxnc9advmnrniw", width: 400, height: 300, crop: :fill %>
+  <div class="card-product-infos">
+
+  <ul class="productList">
+    <li><%= "From: #{@reservation.start_date} until: #{@reservation.end_date}"%></li>
+    <li><%= "- Category: #{@product.category}" %></li>
+    <li><%= "- € #{@reservation.price} per day" %></li>
+  </ul>
+  <%= link_to "back", root_path %>
+</div>
+  </div>
+</div>
+
