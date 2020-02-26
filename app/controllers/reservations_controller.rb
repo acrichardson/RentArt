@@ -6,11 +6,16 @@ class ReservationsController < ApplicationController
   end
 
   def new
+    @product = Product.find(params[:product_id])
     @reservation = Reservation.new
   end
 
   def create
+    @product = Product.find(params[:product_id])
     @reservation = Reservation.new(reservation_params)
+    @user = current_user
+    @reservation.product = @product
+    @reservation.user = @user
     if @reservation.save
     #   redirect_to @reservations_path
     # else
