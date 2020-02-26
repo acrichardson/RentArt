@@ -31,6 +31,9 @@
 
   <div class="mt-5">
 
+    <p><% if policy(Reservation).create? %><%= link_to "Book now!", new_product_reservation_path(@product) %>
+       <% end %>
+    </p>
     <p><%= link_to "Back to products", products_path %></p>
 
     <p><% if policy(@product).edit? %>

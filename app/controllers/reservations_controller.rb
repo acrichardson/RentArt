@@ -2,15 +2,22 @@ class ReservationsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @reservations = Reservation.all
+     @reservations = policy_scope(Reservation).order(created_at: :desc)
   end
 
   def new
+    @product = Product.find(params[:product_id])
     @reservation = Reservation.new
+    authorize @reservation
   end
 
   def create
+    @product = Product.find(params[:product_id])
     @reservation = Reservation.new(reservation_params)
+    @user = current_user
+    @reservation.product = @product
+    @reservation.user = @user
+    authorize @reservation
     if @reservation.save
     #   redirect_to @reservations_path
     # else
@@ -21,11 +28,13 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
+    authorize @reservation
   end
 
   def show
     @reservation = Reservation.find(params[:id])
     @review = Review.new
+    authorize @reservation
   end
 
 private
@@ -34,6 +43,6 @@ private
   # end
 
   def reservation_params
-    params.require(:reservations).permit(:id, :date, :product_id, :user_id, :review_id)
+    params.require(:reservation).permit(:id, :date, :product_id, :user_id, :review_id, :reservations)
   end
 end
