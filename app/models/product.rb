@@ -6,6 +6,6 @@ class Product < ApplicationRecord
 
   CATEGORY = %w[Plane Helicopter Yacht Car Other].freeze
 
-  validates :name, :details, :category, presence: true
+  validates :name, :details, :category, :price, presence: true
   validates :category, inclusion: { in: CATEGORY }
 end
