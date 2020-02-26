@@ -1,0 +1,23 @@
+
+<div id="search-form">
+  <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+    <div class="search-form-control form-group">
+      <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+      <button name="button" type="submit" class="btn btn-flat">
+        <i class="fas fa-search"></i> Search
+      </button>
+    </div>
+  <% end %>
+</div>
+
+<!-- get query from params
+  make search function?
+  redirect?
+   -->
+
+
+<!-- <div id="search-form">
+  <div class="md-form mt-0">
+    <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+  </div>
+</div> -->
