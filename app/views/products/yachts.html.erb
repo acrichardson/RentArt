@@ -1,0 +1,16 @@
+<%= render 'shared/navbar-new' %>
+
+<div class="home-banneryacht">
+    <h1>Travel the world <strong>by Yacht</strong></h1>
+</div>
+<div class="container">
+
+  <div class="product-grid">
+    <% @products.each do |product| %>
+    <div class="product-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path product.photo.attached? ? product.photo.key : "pn4d9wzxnc9advmnrniw", width: 400, height: 300, crop: :fill %>');">
+      <h3><%= link_to "#{product.name}", product_path(product.id) %></h3>
+    </div>
+    <% end %>
+  </div>
+</div>
+</div>

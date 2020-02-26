@@ -38,6 +38,26 @@ class ApplicationPolicy
     false
   end
 
+  def helicopters?
+    false
+  end
+
+  def cars?
+    false
+  end
+
+  def planes?
+    false
+  end
+
+  def yachts?
+    false
+  end
+
+  def others?
+    false
+  end
+
   class Scope
     attr_reader :user, :scope
 

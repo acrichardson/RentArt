@@ -10,9 +10,11 @@
   <ul class="productList">
     <li><%= "From: #{@reservation.start_date} until: #{@reservation.end_date}"%></li>
     <li><%= "- Category: #{@product.category}" %></li>
-    <li><%= "- € #{@reservation.price} per day" %></li>
+    <li><%= "- € #{@product.price} per day" %></li>
+     <li><%= "- € #{@reservation.price} in total" %></li>
   </ul>
   <%= link_to "back", root_path %>
+
 </div>
   </div>
 </div>

@@ -1,5 +1,7 @@
 1 <h1>All my reservations</h1>
 
-<%= @reservations.name %>
+<%= @reservations.each do |reservation| %>
+  <%= @reservation.name %>
+end %>
 
 
