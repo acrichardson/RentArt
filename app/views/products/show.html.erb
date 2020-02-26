@@ -9,8 +9,10 @@
     <% end %>
   </h1>
   <%= cl_image_tag @product.photo.attached? ? @product.photo.key : "pn4d9wzxnc9advmnrniw", width: 400, height: 300, crop: :fill %>
-  <ul>
+  <ul class="productList">
     <li><%= @product.details %></li>
+    <li><%= "- € #{@product.price} per day" %></li>
+    <li><%= "- Category: #{@product.category}" %></li>
   </ul>
 
   <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -29,6 +31,9 @@
 
   <div class="mt-5">
 
+    <p><% if policy(Reservation).create? %><%= link_to "Book now!", new_product_reservation_path(@product) %>
+       <% end %>
+    </p>
     <p><%= link_to "Back to products", products_path %></p>
 
     <p><% if policy(@product).edit? %>

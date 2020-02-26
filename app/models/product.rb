@@ -4,5 +4,8 @@ class Product < ApplicationRecord
   has_many :reservations
   has_many :reviews, through: :reservations
 
-  validates :name, :details, presence: true
+  CATEGORY = %w[Plane Helicopter Yacht Car Other].freeze
+
+  validates :name, :details, :category, :price, presence: true
+  validates :category, inclusion: { in: CATEGORY }
 end
