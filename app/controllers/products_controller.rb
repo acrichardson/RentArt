@@ -50,6 +50,32 @@ class ProductsController < ApplicationController
     authorize @products
   end
 
+   def helicopters
+    @products = Product.where(category: 'Helicopter')
+    authorize @products
+  end
+
+  def yachts
+    @products = Product.where(category: 'Yacht')
+    authorize @products
+  end
+
+  def cars
+    @products = Product.where(category: 'Car')
+    authorize @products
+  end
+
+  def planes
+    @products = Product.where(category: 'Plane')
+    authorize @products
+  end
+
+  def others
+    @products = Product.where(category: 'Other')
+    authorize @products
+  end
+
+
   private
 
   def product_params
