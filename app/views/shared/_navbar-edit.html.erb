@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to "#", class: "navbar-brand test" do %>
-    <%= image_tag "https://res.cloudinary.com/christal-empire/image/upload/v1582636948/luxe_nztm7h.jpg" %>
+  <%= image_tag "https://res.cloudinary.com/christal-empire/image/upload/v1582636948/luxe_nztm7h.jpg" %>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,16 +20,167 @@
         <%= link_to "Back to Something", "#", class: "nav-link" %>
       </li>
       <li class="nav-item dropdown nav-link" >
-          <p class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Product owner menu</p>
+        <p class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Product owner menu</p>
 
-              <div class="dropdown-menu dropdown-menu-right nav-item active" aria-labelledby="navbarDropdown">
-                <%= link_to "Add Product", "/products/new", class: "dropdown-item" %>
-                <%= link_to "Add Photo", "#", class: "dropdown-item" %>
-                <%= link_to "Add Ingredient", "#", class: "dropdown-item" %>
-                <%= link_to "Delete!", "#", class: "dropdown-item" %>
-              </div>
-            </li>
+        <div class="dropdown-menu dropdown-menu-right nav-item active" aria-labelledby="navbarDropdown">
+          <%= link_to "Add Product", "/products/new", class: "dropdown-item" %>
+          <%= link_to "My products", products_path, class: "dropdown-item" %>
+          <%= link_to "Add Photo", "#", class: "dropdown-item" %>
+          <%= link_to "Add Ingredient", "#", class: "dropdown-item" %>
+          <%= link_to "Delete!", "#", class: "dropdown-item" %>
+        </div>
+      </li>
     </ul>
+    <div class="nav-item">
+      <% if user_signed_in? %>
+      <div>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete, :class => 'btn btn-primary') %>
+      </div>
+      <% else %>
+      <div>
+        <%= link_to('Login', new_user_session_path, :class => 'btn btn-primary') %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to "#", class: "navbar-brand test" do %>
+  <%= image_tag "https://res.cloudinary.com/christal-empire/image/upload/v1582636948/luxe_nztm7h.jpg" %>
+  <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "Home", "/", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Add Product", "/products/new", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Back to Something", "#", class: "nav-link" %>
+      </li>
+      <li class="nav-item dropdown nav-link" >
+        <p class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Product owner menu</p>
+
+        <div class="dropdown-menu dropdown-menu-right nav-item active" aria-labelledby="navbarDropdown">
+          <%= link_to "Add Product", "/products/new", class: "dropdown-item" %>
+          <%= link_to "My products", products_path, class: "dropdown-item" %>
+          <%= link_to "Add Photo", "#", class: "dropdown-item" %>
+          <%= link_to "Add Ingredient", "#", class: "dropdown-item" %>
+          <%= link_to "Delete!", "#", class: "dropdown-item" %>
+        </div>
+      </li>
+    </ul>
+    <div class="nav-item">
+      <% if user_signed_in? %>
+      <div>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete, :class => 'btn btn-primary') %>
+      </div>
+      <% else %>
+      <div>
+        <%= link_to('Login', new_user_session_path, :class => 'btn btn-primary') %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to "#", class: "navbar-brand test" do %>
+  <%= image_tag "https://res.cloudinary.com/christal-empire/image/upload/v1582636948/luxe_nztm7h.jpg" %>
+  <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "Home", "/", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Add Product", "/products/new", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Back to Something", "#", class: "nav-link" %>
+      </li>
+      <li class="nav-item dropdown nav-link" >
+        <p class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Product owner menu</p>
+
+        <div class="dropdown-menu dropdown-menu-right nav-item active" aria-labelledby="navbarDropdown">
+          <%= link_to "Add Product", "/products/new", class: "dropdown-item" %>
+          <%= link_to "My products", products_path, class: "dropdown-item" %>
+          <%= link_to "Product bookings", "#", class: "dropdown-item" %>
+        </div>
+      </li>
+    </ul>
+    <div class="nav-item">
+      <% if user_signed_in? %>
+      <div>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete, :class => 'btn btn-primary') %>
+      </div>
+      <% else %>
+      <div>
+        <%= link_to('Login', new_user_session_path, :class => 'btn btn-primary') %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to "#", class: "navbar-brand test" do %>
+  <%= image_tag "https://res.cloudinary.com/christal-empire/image/upload/v1582636948/luxe_nztm7h.jpg" %>
+  <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "Home", "/", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Add Product", "/products/new", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Back to Something", "#", class: "nav-link" %>
+      </li>
+      <li class="nav-item dropdown nav-link" >
+        <p class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Product owner menu</p>
+
+        <div class="dropdown-menu dropdown-menu-right nav-item active" aria-labelledby="navbarDropdown">
+          <%= link_to "Add Product", "/products/new", class: "dropdown-item" %>
+          <%= link_to "My products", products_path, class: "dropdown-item" %>
+          <%= link_to "Add Photo", "#", class: "dropdown-item" %>
+          <%= link_to "Add Ingredient", "#", class: "dropdown-item" %>
+          <%= link_to "Delete!", "#", class: "dropdown-item" %>
+        </div>
+      </li>
+    </ul>
+    <div class="nav-item">
+      <% if user_signed_in? %>
+      <div>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete, :class => 'btn btn-primary') %>
+      </div>
+      <% else %>
+      <div>
+        <%= link_to('Login', new_user_session_path, :class => 'btn btn-primary') %>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
