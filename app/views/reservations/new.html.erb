@@ -6,7 +6,8 @@
 
 <h1>Book your own luxury transport</h1>
 <%= simple_form_for [@product, @reservation] do |f| %>
-  <%= f.input :date %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
   <div class="btn btn-primary">
   <%= f.button :submit %>
   </div>
