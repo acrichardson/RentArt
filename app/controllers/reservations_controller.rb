@@ -34,8 +34,10 @@ end
 
 def destroy
   @reservation = Reservation.find(params[:id])
-  @reservation.destroy
   authorize @reservation
+  @reservation.destroy
+  redirect_to my_reservations_path
+
 end
 
 def my_reservations

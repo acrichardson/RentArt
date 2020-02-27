@@ -16,7 +16,7 @@
     <li><i><%= "€ #{@reservation.product.price} per day" %></i></li>
     <li><%= "From: #{@reservation.start_date} Until: #{@reservation.end_date}"%></li>
      <li><%= "Total price: € #{@reservation.price}" %></li>
-  <%= link_to "My reservations", product_reservations_path(@reservation) %>
+  <%= link_to "My reservations", my_reservations_path %>
   </ul>
   <%= link_to "back to home page", root_path %>
 
