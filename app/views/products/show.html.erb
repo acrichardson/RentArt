@@ -19,13 +19,16 @@
 </div>
 
 <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-  show <%= @product.name %> reviews
+  Show <%= @product.name %> reservations
 </a>
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
     <ol>
-      <% @product.reviews.each do |review| %>
-      <li class="mt-2"><strong><%= review.content %></strong> rating: <%= review.rating %> stars</li>
+      <% @product.reservations.each do |reservation| %>
+       <ul class="productList mt-2">
+          <li><strong><%= "Booked from: #{reservation.start_date} Until: #{reservation.end_date}"%></strong></li>
+          <li><%= "Total price: € #{reservation.price}" %></li>
+        </ul>
       <% end %>
     </ol>
 
