@@ -1,3 +1,9 @@
+<%= render 'shared/navbar' %>
+<div class="home-bannerboat">
+  <h1><strong>RentArt</strong></h1>
+  <h2>Travel the world in style!</h2>
+</div>
+
 <div class="container mt-5">
 <h1>Your reservation has been created</h1>
 
@@ -10,9 +16,9 @@
     <li><i><%= "€ #{@reservation.product.price} per day" %></i></li>
     <li><%= "From: #{@reservation.start_date} Until: #{@reservation.end_date}"%></li>
      <li><%= "Total price: € #{@reservation.price}" %></li>
+  <%= link_to "My reservations", my_reservations_path %>
   </ul>
-
-  <%= link_to "back", root_path %>
+  <%= link_to "back to home page", root_path %>
 
 </div>
   </div>

@@ -1,2 +1,27 @@
 
-<h1>Ma reservations</h1>
+<div class="home-bannerboat">
+  <h1><strong>RentArt</strong></h1>
+  <h2>Travel the world in style!</h2>
+</div>
+
+<div class="container mt-3">
+  <h1>All my reservations</h1>
+  <% current_user.reservations.each do |reservation| %>
+    <div class="card-product mt-2">
+      <%= cl_image_tag reservation.product.photo.attached? ?reservation.product.photo.key : "pn4d9wzxnc9advmnrniw", width: 400, height: 300, crop: :fill %>
+      <div class="card-product-infos">
+        <ul class="productList">
+          <li><b><%= "Booked from: #{reservation.start_date} until: #{reservation.end_date}"%></b></li>
+          <li><%= "Total price: € #{reservation.price}" %></li>
+        </ul>
+        <% if policy(reservation).destroy? %><%= link_to reservation_path(reservation.id), method: :delete, data: {confirm: "Are you sure you want to delete this product?"} do%>
+        <i class="fas fa-trash-alt"></i>
+        <% end %>
+        <% end %>
+  <div>
+  <%= link_to "back to home page", root_path %>
+  </div>
+      </div>
+    </div>
+  <% end %>
+</div>
