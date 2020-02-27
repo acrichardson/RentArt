@@ -10,11 +10,11 @@ Rails.application.routes.draw do
       get 'cars'
       get 'others'
     end
-    resources :reservations, only: [:new, :create, :index]
+    resources :reservations, only: [:new, :create, :show, :index]
   end
 
   resources :reviews, only: [:destroy]
-  resources :reservations, only: [:destroy, :show] do
+  resources :reservations, only: [:destroy] do
     resources :reviews, only: [:create]
   end
 

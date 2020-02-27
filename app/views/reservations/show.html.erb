@@ -1,9 +1,22 @@
-<p>Date: <%= @reservation.date %></p>
+<div class="container mt-5">
+<h1>Your reservation has been created</h1>
 
-<p>Product: <%= @reservation.product.name %></p>
+<div class="card-product">
+<%= cl_image_tag @reservation.product.photo.attached? ? @reservation.product.photo.key : "pn4d9wzxnc9advmnrniw", width: 400, height: 300, crop: :fill %>
+  <div class="card-product-infos">
 
-<%= render "reservations/partials/review_form" %>
+  <ul class="productList">
+    <li><%= "Name: #{@reservation.product.name} : #{@reservation.product.category}" %></li>
+    <li><%= "From: #{@reservation.start_date} until: #{@reservation.end_date}"%></li>
+    <li><i><%= "€ #{@reservation.product.price} per day" %></i></li>
+     <li><%= "Total price: € #{@reservation.price}" %></li>
+  </ul>
 
+  <%= link_to "back", root_path %>
+
+</div>
+  </div>
+</div>
 
 
 

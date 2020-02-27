@@ -1,5 +1,5 @@
 
-<div class="container mt-5">
+<!-- <div class="container mt-5">
 <h1>Your reservation has been created</h1>
 
 
@@ -8,14 +8,19 @@
   <div class="card-product-infos">
 
   <ul class="productList">
+    <li><%= "Name: #{@product.name} : #{@product.category}" %></li>
     <li><%= "From: #{@reservation.start_date} until: #{@reservation.end_date}"%></li>
-    <li><%= "- Category: #{@product.category}" %></li>
-    <li><%= "- € #{@product.price} per day" %></li>
-     <li><%= "- € #{@reservation.price} in total" %></li>
+    <li><i><%= "€ #{@product.price} per day" %></i></li>
+     <li><%= "Total price: € #{@reservation.price}" %></li>
   </ul>
+  <%= simple_form_for [@product, @reservation] do |f| %>
+   <div class="btn btn-primary">
+        <%= f.submit :submit, data: {confirm: "Is all the information above correct?"} %>
+      </div>
+      <% end %>
   <%= link_to "back", root_path %>
 
 </div>
   </div>
-</div>
+</div> -->
 
