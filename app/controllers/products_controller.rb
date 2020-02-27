@@ -3,7 +3,15 @@ class ProductsController < ApplicationController
 
 
   def index
-    @products = policy_scope(Product)
+    if params[:query].present?
+      sql_query = " \
+        products.name @@ :query \
+        OR products.details @@ :query \
+      "
+      @products = Movie.joins(:name).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @products = policy_scope(Product)
+    end
   end
 
   def show

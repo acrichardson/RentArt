@@ -1,17 +1,17 @@
 <%= render 'shared/navbar' %>
 
-<h1>My Products</h1>
+<div class="home-banner">
+    <h1>Your Products!</h1>
+</div>
+<div class="container">
 
-    <ul>
-      <% @products.each do |product| %>
-      <li><%= link_to product.name, product_path(product) %>
-      <% if policy(product).edit? %>
-        <%= link_to "Update", edit_product_path(product) %></li>
-      <% end %>
-      <% end %>
-    </ul>
+<div class="container">
 
-  <% if policy(Product).create? %>
-    <%= link_to "Add a new product", new_product_path %>
-  <% end %>
-
+  <div class="product-grid">
+    <% current_user.products.each do |product| %>
+    <div class="product-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path product.photo.attached? ? product.photo.key : "pn4d9wzxnc9advmnrniw", width: 400, height: 300, crop: :fill %>');">
+      <h3><%= link_to "#{product.name}", product_path(product.id) %></h3>
+    </div>
+    <% end %>
+  </div>
+</div>
