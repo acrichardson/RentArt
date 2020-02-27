@@ -44,6 +44,6 @@ private
   # end
 
   def reservation_params
-    params.require(:reservation).permit(:id, :date, :product_id, :user_id, :review_id, :reservations, :start_date, :end_date, :price)
+    params.require(:reservation).permit(:id, :date, :product_id, :user_id, :review_id, :start_date, :end_date, :price)
   end
 end
