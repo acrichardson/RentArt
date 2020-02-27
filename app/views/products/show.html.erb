@@ -6,11 +6,11 @@
    <%= cl_image_tag @product.photo.attached? ? @product.photo.key : "pn4d9wzxnc9advmnrniw", width: 400, height: 300, crop: :fill %>
    <div class="card-product-infos">
     <h1><%= @product.name %> <% if policy(@product).destroy? %><%= link_to product_path(@product), method: :delete, data: {confirm: "Are you sure you want to delete this product?"} do%>
-    <i class="fas fa-trash-alt"></i>
-    <% end %>
-    <% end %>
-  </h1>
-     <ul class="productList">
+      <i class="fas fa-trash-alt"></i>
+      <% end %>
+      <% end %>
+    </h1>
+    <ul class="productList">
       <li><%= @product.details %></li>
       <li><%= "- € #{@product.price} per day" %></li>
       <li><%= "- Category: #{@product.category}" %></li>
@@ -18,20 +18,32 @@
   </div>
 </div>
 
-<a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+<a class="btn btn-primary" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
   Show <%= @product.name %> reservations
+</a>
+<div class="collapse" id="collapseExample2">
+  <div class="card card-body">
+    <ol>
+      <% @product.reservations.each do |reservation| %>
+      <ul class="productList mt-2">
+        <li><strong><%= "Booked from: #{reservation.start_date} Until: #{reservation.end_date}"%></strong></li>
+        <li><%= "Total price: € #{reservation.price}" %></li>
+      </ul>
+      <% end %>
+    </ol>
+  </div>
+</div>
+
+<a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+  show <%= @product.name %> reviews
 </a>
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
     <ol>
-      <% @product.reservations.each do |reservation| %>
-       <ul class="productList mt-2">
-          <li><strong><%= "Booked from: #{reservation.start_date} Until: #{reservation.end_date}"%></strong></li>
-          <li><%= "Total price: € #{reservation.price}" %></li>
-        </ul>
+      <% @product.reviews.each do |review| %>
+      <li class="mt-2"><strong><%= review.content %></strong> rating: <%= review.rating %> stars</li>
       <% end %>
     </ol>
-
 
   </div>
 </div>
