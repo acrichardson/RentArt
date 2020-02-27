@@ -31,12 +31,15 @@
       <li class="nav-item">
         <%= link_to "See all products", products_path, class: "nav-link" %>
       </li>
+      <li class="nav-item">
+        <%= link_to "My reservations", products_path, class: "nav-link" %>
+      </li>
       <li class="nav-item dropdown nav-link" >
         <p class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Product owner menu</p>
         <div class="dropdown-menu dropdown-menu-right nav-item active" aria-labelledby="navbarDropdown">
           <%= link_to "Add Product", "/products/new", class: "dropdown-item" %>
-          <%= link_to "My products", products_path, class: "dropdown-item" %>
+          <%= link_to "My products", my_products_path, class: "dropdown-item" %>
           <%= link_to "Product bookings", "#", class: "dropdown-item" %>
         </div>
       </li>
