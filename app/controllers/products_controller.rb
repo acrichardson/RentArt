@@ -1,14 +1,14 @@
 class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
-
   def index
     if params[:query].present?
       sql_query = " \
         products.name @@ :query \
         OR products.details @@ :query \
+        OR products.category @@ :query \
       "
-      @products = Movie.joins(:name).where(sql_query, query: "%#{params[:query]}%")
+      @products = policy_scope(Product).where(sql_query, query: "%#{params[:query]}%")
     else
       @products = policy_scope(Product)
     end
