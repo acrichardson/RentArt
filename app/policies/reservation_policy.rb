@@ -5,6 +5,10 @@ class ReservationPolicy < ApplicationPolicy
     end
   end
 
+  def new
+    return true
+  end
+
   def create?
     return true
   end
@@ -17,5 +21,7 @@ class ReservationPolicy < ApplicationPolicy
     true
   end
 
-
+  def my_reservations?
+    true
+  end
 end

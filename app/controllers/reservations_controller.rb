@@ -38,6 +38,10 @@ def destroy
   authorize @reservation
 end
 
+def my_reservations
+  @reservations = current_user.reservations
+  authorize @reservations
+end
 
 private
   # def get_reservation
