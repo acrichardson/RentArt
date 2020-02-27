@@ -26,7 +26,7 @@ def create
   @reservation.price = @product.price * (params[:reservation][:end_date].to_date - params[:reservation][:start_date].to_date)
   authorize @reservation
   if @reservation.save
-      redirect_to product_reservation_path(@reservation)
+      redirect_to product_reservation_path(@product, @reservation)
     else
       render :new
     end
@@ -45,6 +45,6 @@ private
   # end
 
   def reservation_params
-    params.require(:reservation).permit(:id, :date, :product_id, :user_id, :review_id, :reservations, :start_date, :end_date, :price)
+    params.require(:reservation).permit(:id, :date, :product_id, :user_id, :review_id, :start_date, :end_date, :price)
   end
 end
