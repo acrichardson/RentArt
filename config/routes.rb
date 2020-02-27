@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :reviews, only: [:destroy]
   resources :reservations, only: [:destroy] do
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:new, :create]
   end
   get 'my_reservations', to: 'reservations#my_reservations'
   get 'my_products', to: 'products#my_products'

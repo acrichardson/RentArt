@@ -25,6 +25,7 @@
   opacity: .7;
   margin-bottom: 3px;
   margin-top: 8px;
+  margin-left: 1px;
 }
 
 .card-product .card-product-infos {
@@ -33,7 +34,7 @@
 
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
 }
 
