@@ -58,6 +58,10 @@ class ApplicationPolicy
     false
   end
 
+  def my_reservations?
+    false
+  end
+
   class Scope
     attr_reader :user, :scope
 
