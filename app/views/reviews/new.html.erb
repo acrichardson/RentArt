@@ -1,11 +1,9 @@
-<h1>Make a new review</h1>
-<p>Find me in app/views/reviews/create.html.erb</p>
+<h1><%= "Review #{@product.name}" %></h1>
 
 <div>
-
 <%= simple_form_for [@review, @reservation] do |f| %>
-  <%= f.input :stars %>
   <%= f.input :content %>
+  <%= f.input :stars, collection: [0, 1, 2, 3, 4, 5] %>
   <%= f.submit "add review", class: "btn btn-primary" %>
 <% end %>
 </div>
