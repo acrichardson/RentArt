@@ -1,0 +1,24 @@
+<div class="home-bannerboat">
+  <h1><strong>RentArt</strong></h1>
+  <h2>Travel the world in style!</h2>
+</div>
+
+<div class="container mt-5">
+<h1>Your request has been created</h1>
+
+<div class="card-product">
+<%= cl_image_tag @request.product.photo.attached? ? @request.product.photo.key : "pn4d9wzxnc9advmnrniw", width: 400, height: 300, crop: :fill %>
+  <div class="card-product-infos">
+
+  <ul class="productList">
+    <li><%= "Name: #{@request.product.name}" %></li>
+    <li><i><%= "€ #{@request.product.price} per day" %></i></li>
+    <li><%= "From: #{@request.start_date} Until: #{@request.end_date}"%></li>
+     <li><%= "Total price: € #{@request.price}" %></li>
+  <%= link_to "My requests", my_requests_path %>
+  </ul>
+  <%= link_to "back to home page", root_path %>
+
+</div>
+  </div>
+</div>

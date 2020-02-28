@@ -45,6 +45,11 @@ def my_reservations
   authorize @reservations
 end
 
+def my_product_reservations
+  @reservations = Reservation.where(product_id: current_user.product_ids)
+  authorize @reservations
+end
+
 private
   # def get_reservation
   #   @reservation = @reservation.find(params[:id])

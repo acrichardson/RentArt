@@ -1,4 +1,4 @@
-class ReservationPolicy < ApplicationPolicy
+class RequestPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -21,11 +21,7 @@ class ReservationPolicy < ApplicationPolicy
     true
   end
 
-  def my_reservations?
-    true
-  end
-
-  def my_product_reservations?
+  def my_requests?
     true
   end
 end

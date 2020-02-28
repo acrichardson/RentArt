@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   has_one_attached :photo
   belongs_to :user
   has_many :reservations, dependent: :destroy
+  has_many :requests, dependent: :destroy
   has_many :reviews, through: :reservations
 
   CATEGORY = %w[Plane Helicopter Yacht Car Other].freeze
