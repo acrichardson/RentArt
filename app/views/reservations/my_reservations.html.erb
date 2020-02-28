@@ -5,7 +5,7 @@
 </div>
 
 <div class="container mt-3">
-  <h1>All my reservations</h1>
+  <h1 class="mt-5 mb-5">All my reservations</h1>
   <% current_user.reservations.each do |reservation| %>
     <div class="card-product mt-2">
       <%= cl_image_tag reservation.product.photo.attached? ?reservation.product.photo.key : "pn4d9wzxnc9advmnrniw", width: 400, height: 300, crop: :fill %>
