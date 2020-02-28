@@ -2,61 +2,64 @@
 
 <div class="container mt-3">
 
-  <div class="card-product">
-   <%= cl_image_tag @product.photo.attached? ? @product.photo.key : "pn4d9wzxnc9advmnrniw", width: 400, height: 300, crop: :fill %>
-   <div class="card-product-infos">
-    <h1><%= @product.name %> <% if policy(@product).destroy? %><%= link_to product_path(@product), method: :delete, data: {confirm: "Are you sure you want to delete this product?"} do%>
-      <i class="fas fa-trash-alt"></i>
-      <% end %>
-      <% end %>
-    </h1>
-    <ul class="productList">
-      <li><%= @product.details %></li>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @product.photo.attached? ? @product.photo.key : "pn4d9wzxnc9advmnrniw", width: 400, height: 300, crop: :fill %>')"><%= @product.name %><% if policy(@product).destroy? %><%= link_to product_path(@product), method: :delete, data: {confirm: "Are you sure you want to delete this product?"} do%>
+    <i class="fas fa-trash-alt"></i>
+    <% end %>
+    <% end %>
+  </div>
+  <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+      aria-selected="true"><%= @product.name %> details</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+      aria-selected="false"><%= @product.name %> reviews</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+      aria-selected="false"><%= @product.name %> reservations</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <li><%= @product.details %></li>
       <li><%= "- € #{@product.price} per day" %></li>
       <li><%= "- Category: #{@product.category}" %></li>
     </ul>
+    <p class="mt-4"><% if policy(@product).edit? %>
+  <%= link_to "Update #{@product.name}", edit_product_path(@product) %>
+      </ol>
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <ol>
+        <% @product.reviews.each do |review| %>
+        <li class="mt-2"><strong><%= review.content %></strong> rating: <%= review.rating %> stars</li>
+        <% end %>
+      </ol>
+    </div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"><ul class="productList">
+       <ol>
+        <% @product.reservations.each do |reservation| %>
+        <ul class="productList mt-2">
+          <li><strong><%= "Booked from: #{reservation.start_date} Until: #{reservation.end_date}"%></strong></li>
+          <li><%= "Total price: € #{reservation.price}" %></li>
+        </ul>
+        <% end %>
+        <p><% if policy(Reservation).create? %><%= link_to "Book now!", new_product_reservation_path(@product) %>
+   <% end %>
+ </p>
+
+  <% end %></p>
   </div>
 </div>
 
-<a class="btn btn-primary" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
-  Show <%= @product.name %> reservations
-</a>
-<div class="collapse" id="collapseExample2">
-  <div class="card card-body">
-    <ol>
-      <% @product.reservations.each do |reservation| %>
-      <ul class="productList mt-2">
-        <li><strong><%= "Booked from: #{reservation.start_date} Until: #{reservation.end_date}"%></strong></li>
-        <li><%= "Total price: € #{reservation.price}" %></li>
-      </ul>
-      <% end %>
-    </ol>
-  </div>
-</div>
-
-<a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-  show <%= @product.name %> reviews
-</a>
-<div class="collapse" id="collapseExample">
-  <div class="card card-body">
-    <ol>
-      <% @product.reviews.each do |review| %>
-      <li class="mt-2"><strong><%= review.content %></strong> rating: <%= review.rating %> stars</li>
-      <% end %>
-    </ol>
-
-  </div>
-</div>
 
 <div class="mt-5">
 
-  <p><% if policy(Reservation).create? %><%= link_to "Book now!", new_product_reservation_path(@product) %>
-   <% end %>
- </p>
+
  <p><%= link_to "Back to products", products_path %></p>
 
- <p><% if policy(@product).edit? %>
-  <%= link_to "Update #{@product.name}", edit_product_path(@product) %>
-  <% end %></p>
+
 </div>
 </div>
