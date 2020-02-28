@@ -13,6 +13,10 @@ class ReviewPolicy < ApplicationPolicy
     return true
   end
 
+  # def blank_stars?
+  #   return true
+  # end
+
    def destroy?
     record.user == user || record.product.user == user
   end

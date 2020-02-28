@@ -20,12 +20,18 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def blank_star
+    binding.pry
+    @review = 5 - rating.to_i
+    # authorize @review
+  end
 
   def destroy
     @review = Review.find(params[:id])
     authorize @review
     @review.destroy
   end
+
 
   private
 
