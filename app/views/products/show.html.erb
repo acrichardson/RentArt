@@ -45,7 +45,7 @@
           <li><%= "Total price: € #{reservation.price}" %></li>
         </ul>
         <% end %>
-        <p><% if policy(Reservation).create? %><%= link_to "Book now!", new_product_reservation_path(@product) %>
+        <p><% if policy(Reservation).create? %><%= link_to "Book a now!", new_product_reservation_path(@product) %>
    <% end %>
  </p>
 

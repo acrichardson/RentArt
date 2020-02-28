@@ -1,0 +1,25 @@
+<div class="home-bannerboat">
+  <h1><strong>RentArt</strong></h1>
+  <h2>Travel the world in style!</h2>
+</div>
+
+<div class="container mt-3">
+  <h1>All Requests per product</h1>
+  <% @requests.each do |request| %>
+    <div class="card-product mt-2">
+      <%= cl_image_tag request.product.photo.attached? ?request.product.photo.key : "pn4d9wzxnc9advmnrniw", width: 400, height: 300, crop: :fill %>
+      <div class="card-product-infos">
+        <ul class="productList">
+          <li><%= "Name: #{request.product.name}" %></li>
+          <li><%= "From: #{request.start_date} Until: #{request.end_date}"%></li>
+          <li><%= "Total price: € #{request.price}" %></li>
+        </ul>
+      </div>
+    </div>
+ <% if policy(request).destroy? %><%= link_to request_path(request.id), method: :delete, data: {confirm: "Are you sure you want to delete this product?"} do%>
+    <i class="fas fa-trash-alt"></i>
+    <% end %>
+    <% end %>
+  <% end %>
+  <%= link_to "back to home page", root_path %>
+</div>

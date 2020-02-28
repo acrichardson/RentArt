@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_27_084550) do
+ActiveRecord::Schema.define(version: 2020_02_28_130143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,7 +53,22 @@ ActiveRecord::Schema.define(version: 2020_02_27_084550) do
     t.datetime "updated_at", null: false
     t.integer "price"
     t.string "category"
+    t.bigint "request_id"
+    t.index ["request_id"], name: "index_products_on_request_id"
     t.index ["user_id"], name: "index_products_on_user_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.boolean "declined", default: false
+    t.bigint "product_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "price"
+    t.index ["product_id"], name: "index_requests_on_product_id"
+    t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -90,7 +105,10 @@ ActiveRecord::Schema.define(version: 2020_02_27_084550) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "products", "requests"
   add_foreign_key "products", "users"
+  add_foreign_key "requests", "products"
+  add_foreign_key "requests", "users"
   add_foreign_key "reservations", "products"
   add_foreign_key "reservations", "users"
   add_foreign_key "reviews", "reservations"
