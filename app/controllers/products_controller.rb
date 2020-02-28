@@ -84,7 +84,6 @@ class ProductsController < ApplicationController
     authorize @products
   end
 
-
   private
 
   def product_params
