@@ -1,13 +1,16 @@
 class ReviewsController < ApplicationController
 
   def new
+    @reservation = Reservation.find(params[:reservation_id])
     @review = Review.new
+    authorize @review
   end
 
   def create
     @reservation = Reservation.find(params[:reservation_id])
     @review = Review.new(review_params)
     @review.reservation = @reservation
+    authorize @review
 
     if @review.save
       redirect_to product_path(@reservation.product)
@@ -20,6 +23,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find(params[:id])
+    authorize @review
     @review.destroy
   end
 

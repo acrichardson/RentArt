@@ -20,6 +20,7 @@
         <% end %>
   <div class="list mt-4">
   <li><%= link_to "Bring me to #{reservation.product.name} page", product_path(reservation.product) %></li>
+  <li><%= link_to "Add a review for #{reservation.product.name}",  new_reservation_review_path(reservation)%></li>
   </div>
       </div>
     </div>

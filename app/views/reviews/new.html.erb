@@ -1,7 +1,7 @@
-<h1><%= "Review #{@product.name}" %></h1>
+<h1><%= "Review #{@reservation.product.name}" %></h1>
 
 <div>
-<%= simple_form_for [@review, @reservation] do |f| %>
+<%= simple_form_for [@reservation, @review] do |f| %>
   <%= f.input :content %>
   <%= f.input :stars, collection: [0, 1, 2, 3, 4, 5] %>
   <%= f.submit "add review", class: "btn btn-primary" %>

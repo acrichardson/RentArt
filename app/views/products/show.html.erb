@@ -34,7 +34,7 @@
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
       <ol>
         <% @product.reviews.each do |review| %>
-        <li class="mt-2"><strong><%= review.content %></strong> rating: <%= review.rating %> stars</li>
+        <li class="mt-2"><i><%= review.content %></i></li><p>rating: <%= review.stars %> stars</p>
         <% end %>
       </ol>
     </div>
