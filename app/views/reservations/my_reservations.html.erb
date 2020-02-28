@@ -11,15 +11,17 @@
       <%= cl_image_tag reservation.product.photo.attached? ?reservation.product.photo.key : "pn4d9wzxnc9advmnrniw", width: 400, height: 300, crop: :fill %>
       <div class="card-product-infos">
         <ul class="productList">
-          <li><b><%= "Booked from: #{reservation.start_date} until: #{reservation.end_date}"%></b></li>
-          <li><%= "Total price: € #{reservation.price}" %></li>
+          <li><b><%= reservation.product.name %></b></li>
+          <li><%= "Booked from: #{reservation.start_date} until: #{reservation.end_date}"%></li>
+          <li><i><%= "Total price: € #{reservation.price}" %></i></li>
         </ul>
         <% if policy(reservation).destroy? %><%= link_to reservation_path(reservation.id), method: :delete, data: {confirm: "Are you sure you want to delete this product?"} do%>
         <i class="fas fa-trash-alt"></i>
         <% end %>
         <% end %>
-  <div>
-  <%= link_to "back to home page", root_path %>
+  <div class="list mt-4">
+  <li><%= link_to "Bring me to #{reservation.product.name} page", product_path(reservation.product) %></li>
+  <li><%= link_to "Add a review for #{reservation.product.name}",  new_reservation_review_path(reservation)%></li>
   </div>
       </div>
     </div>
