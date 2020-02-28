@@ -5,7 +5,7 @@
 </div>
 
 <div class="container mt-3">
-  <h1>All my reservations</h1>
+  <h1 class="mt-5 mb-5">All my reservations</h1>
   <% current_user.reservations.each do |reservation| %>
     <div class="card-product mt-2">
       <%= cl_image_tag reservation.product.photo.attached? ?reservation.product.photo.key : "pn4d9wzxnc9advmnrniw", width: 400, height: 300, crop: :fill %>
@@ -15,7 +15,7 @@
           <li><%= "Booked from: #{reservation.start_date} until: #{reservation.end_date}"%></li>
           <li><i><%= "Total price: € #{reservation.price}" %></i></li>
         </ul>
-        <% if policy(reservation).destroy? %><%= link_to reservation_path(reservation.id), method: :delete, data: {confirm: "Are you sure you want to delete this product?"} do%>
+        <% if policy(reservation).destroy? %><%= link_to reservation_path(reservation.id), method: :delete, data: {confirm: "Are you sure you want to cancel this reservation?"} do%>
         <i class="fas fa-trash-alt"></i>
         <% end %>
         <% end %>

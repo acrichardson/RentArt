@@ -7,7 +7,7 @@ class Product < ApplicationRecord
 
   CATEGORY = %w[Plane Helicopter Yacht Car Other].freeze
 
-  validates :name, :details, :category, :price, presence: true
+  validates :name, :details, :category, :price, :address, presence: true
   validates :category, inclusion: { in: CATEGORY }
 
   include PgSearch::Model

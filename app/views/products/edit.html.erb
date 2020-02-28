@@ -8,6 +8,7 @@
   <%= f.input :details %>
   <%= f.input :price, placeholder: 'Price per day'%>
   <%= f.input :category, collection: Product::CATEGORY %>
+  <%= f.input :address %>
   <%= f.input :photo, as: :file %>
   <div class="btn btn-primary">
   <%= f.button :submit %>

@@ -21,11 +21,10 @@
     </li>
   </ul>
   <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="tab-pane fade show active list" id="home" role="tabpanel" aria-labelledby="home-tab">
       <li><%= @product.details %></li>
       <li><%= "- € #{@product.price} per day" %></li>
       <li><%= "- Category: #{@product.category}" %></li>
-      <li><%= "- Address: #{@product.address}" %></li>
     </ul>
     <p class="mt-4"><% if policy(@product).edit? %>
       <%= link_to "Update #{@product.name}", edit_product_path(@product) %>
@@ -37,10 +36,10 @@
       <%review.stars.to_i.times do %>
       <span class="glyphicon glyphicon-star"> <i class="fas fa-star"></i></span>
       <% end %>
-      <% review.blank_stars.times do %>
- <i class="far fa-star"></i>
-<% end %>
-      <p>Review: <i><%= review.content %></i></p>
+      <% review.blank_stars.to_i.times do %>
+      <i class="far fa-star"></i>
+      <% end %>
+      <p>Review:<i><%= review.content %></i></p>
       <% end %>
     </ul>
   </div>
