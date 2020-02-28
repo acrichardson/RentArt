@@ -12,6 +12,9 @@ class ProductsController < ApplicationController
     else
       @products = policy_scope(Product)
     end
+
+    @products =@products.geocoded
+    set_markers
   end
 
   def show
@@ -77,12 +80,7 @@ class ProductsController < ApplicationController
     @category = params[:category].capitalize
     @products = Product.where('category ILIKE ?', "%#{@category}%")
     @products = @products.geocoded #returns flats with coordinates
-    @markers = @products.map do |product|
-      {
-        lat: product.latitude,
-        lng: product.longitude
-      }
-    end
+    set_markers
     authorize @products
   end
 
@@ -116,7 +114,17 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :details, :user_id, :price, :category, :photo)
+    params.require(:product).permit(:name, :details, :user_id, :price, :category, :photo, :address)
+  end
+
+  def set_markers
+    @markers = @products.map do |product|
+      {
+        lat: product.latitude,
+        lng: product.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { product: product })
+      }
+    end
   end
 
 end
