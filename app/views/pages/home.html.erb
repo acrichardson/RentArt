@@ -5,26 +5,26 @@
 
 <div class="cards mt-3">
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://upload.wikimedia.org/wikipedia/commons/1/1b/Mil_Mi-8P%2C_Baltic_Airlines_%28cropped%29.jpg)">
-    <%= link_to "Helicopters", helicopters_products_path %>
+    <%= link_to "Helicopters", category_products_path('Helicopter') %>
   </div>
 
 
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://robbreportedit.files.wordpress.com/2018/05/pilatus-pc-24.jpg?w=1000)">
-    <%= link_to "Planes", planes_products_path %>
+    <%= link_to "Planes", category_products_path('Plane') %>
   </div>
 
 
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.insider.com/5b59df8d1982d835008b460a?width=1100&format=jpeg&auto=webp)">
-    <%= link_to "Yachts", yachts_products_path %>
+    <%= link_to "Yachts", category_products_path('Yacht')  %>
   </div>
 
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.autoweek.nl/m/3i2ykn6btfi2_800.jpg)">
-    <%= link_to "Cars", cars_products_path %>
+    <%= link_to "Cars", category_products_path('Car')  %>
   </div>
 
 
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://avadatravel.com/wp-content/uploads/2019/05/Luxury-Travel-Laos.jpg)">
-    <%= link_to "Others", others_products_path %>
+    <%= link_to "Others", category_products_path('Other') %>
   </div>
 
 </div>
