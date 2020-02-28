@@ -10,12 +10,22 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+<%= render 'shared/navbar' %>
 
+      <div class="notice"><%= notice %></div>
+      <div class="alert"><%= alert %></div>
+
+      <%= yield %>
+
+
+      <div class="push"></div>
+    </div>
+    <footer class="footer"><%= render 'shared/footer' %></footer>
     <%= javascript_include_tag 'application' %>
 
     <%= javascript_pack_tag 'application' %>
+
   </body>
 </html>
+
+
