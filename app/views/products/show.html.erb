@@ -25,6 +25,7 @@
       <li><%= @product.details %></li>
       <li><%= "- € #{@product.price} per day" %></li>
       <li><%= "- Category: #{@product.category}" %></li>
+       <li><%= "- Address: #{@product.address}" %></li>
     </ul>
     <p class="mt-4"><% if policy(@product).edit? %>
       <%= link_to "Update #{@product.name}", edit_product_path(@product) %>
@@ -62,7 +63,9 @@
 
 <div class="mt-5">
 
-
+ <p><% if policy(Reservation).create? %><%= link_to "Book now!", new_product_reservation_path(@product) %>
+   <% end %>
+ </p>
  <p><%= link_to "Back to products", products_path %></p>
 
 
