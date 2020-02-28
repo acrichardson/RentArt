@@ -61,6 +61,28 @@ class ProductsController < ApplicationController
 
    def helicopters
     @products = Product.where(category: 'Helicopter')
+    @products = @products.geocoded #returns flats with coordinates
+
+    @markers = @products.map do |product|
+      {
+        lat: product.latitude,
+        lng: product.longitude
+      }
+    end
+    authorize @products
+
+  end
+
+  def categories
+    @category = params[:category].capitalize
+    @products = Product.where('category ILIKE ?', "%#{@category}%")
+    @products = @products.geocoded #returns flats with coordinates
+    @markers = @products.map do |product|
+      {
+        lat: product.latitude,
+        lng: product.longitude
+      }
+    end
     authorize @products
   end
 
@@ -76,7 +98,14 @@ class ProductsController < ApplicationController
 
   def planes
     @products = Product.where(category: 'Plane')
-    authorize @products
+    @products = Product.geocoded
+    @markers = @products.map do |product|
+      {
+        lat: product.latitude,
+        lng: product.longitude
+      }
+    authorize @markers
+  end
   end
 
   def others

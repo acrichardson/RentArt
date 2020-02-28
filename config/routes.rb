@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get 'yachts'
       get 'cars'
       get 'others'
+      get 'categories/:category', to: 'products#categories', as: :category
     end
     resources :reservations, only: [:new, :create, :show, :index]
   end
