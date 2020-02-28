@@ -45,4 +45,8 @@ class ProductPolicy < ApplicationPolicy
     true
   end
 
+  def categories?
+    true
+  end
+
 end
